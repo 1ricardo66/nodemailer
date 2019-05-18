@@ -1,7 +1,7 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>Contact Form Tutorial by Bootstrapious.com</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,9 +11,12 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Gerar Email</title>
 </head>
 
 <body>
+
+
     <style>
         .nav-side-menu {
             overflow: auto;
@@ -47,19 +50,6 @@
             margin: 0px;
             line-height: 35px;
             cursor: pointer;
-            /*    
-        .collapsed{
-           .arrow:before{
-                     font-family: FontAwesome;
-                     content: "\f053";
-                     display: inline-block;
-                     padding-left:10px;
-                     padding-right: 10px;
-                     vertical-align: middle;
-                     float:right;
-                }
-         }
-    */
         }
         
         .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -180,18 +170,7 @@
         
         .center {
             padding-left: 40%;
-            padding-top: 15%;
-        }
-        
-        .centralizar {
-            margin: 0 auto;
-            width: 50%;
-            padding-top: 5%;
-            /* Valor da Largura */
-        }
-        
-        #send {
-            margin-left: 3%;
+            padding-top: 12%;
         }
         
         #img-logo {
@@ -199,10 +178,10 @@
         }
     </style>
 
-
+    <!-- Enviar Email, gerar email, gerar senha -->
 
     <div class="nav-side-menu">
-        <div class="brand"><img id="img-logo" src="https://www.designfreelogoonline.com/wp-content/uploads/2016/03/000707-online-digital-eye-logo-free-logo-maker-02.png" alt="Logo da empresa"></div>
+        <div class="brand"><img id="img-logo" src="https://www.designfreelogoonline.com/wp-content/uploads/2016/03/000707-online-digital-eye-logo-free-logo-maker-02.png" alt=""></div>
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
         <div class="menu-list">
@@ -234,34 +213,33 @@
     </div>
 
 
+    <div class="center">
 
-
-    <div class="centralizar">
-        <form method="post" action="/resposta">
-            <div class="form-group col-9">
-                <label for="exampleFormControlInput1">Informe o titulo do Email</label>
-                <input name="titulo" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo">
+        <form action="#" method="POST">
+            <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="text" class="form-control col-5" name="gerar" value="" placeholder="Digite um nome">
             </div>
-            <div class="form-group col-9">
-                <label for="exampleFormControlInput1">Endereço de email</label>
-                <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
-            </div>
-
-            <div class="form-group col-9">
-                <label for="exampleFormControlTextarea1">Digite sua mensagem</label>
-                <textarea name="textArea" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-outline-primary" id="send">Enviar</button>
+            <button type="button" class="btn btn-outline-primary" id="send" onclick="gerarEmail();">Gerar</button>
         </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+
+    <script>
+        function gerarEmail() {
+            var email = "<%=email%>";
+            if (document.getElementById('email').value != "") {
+                document.getElementById('email').value += email;
+            }
+        }
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
-    <script src="contact.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
